@@ -10,10 +10,17 @@ const Section = styled.section`
   background-color: #25274d;
 `;
 
+const Container = styled.div`
+  display: grid;
+  grid-tempplate-columns: 1fr 1fr;
+  height: 100vh;
+  padding: 3rem;
+`;
+
 export default function Hero() {
   return (
     <Section>
-      <Container></Container>
+      <Container>Hello</Container>
     </Section>
   );
 }
