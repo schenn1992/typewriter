@@ -1,14 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Hero from './components/Hero';
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from 'react-bootstrap';
+import Home from './components/Home';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 function App() {
   return (
@@ -32,13 +25,9 @@ function App() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form inline>
-            <FormControl type='text' placeholder='Search' className='mr-sm-2' />
-            <Button variant='outline-success'>Search</Button>
-          </Form>
         </Navbar.Collapse>
       </Navbar>
-      <Hero />
+      <Home />
     </div>
   );
 }
