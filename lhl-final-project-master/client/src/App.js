@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import InfoList from './components/InfoList';
+import Hero from './components/Hero';
 import {
   Navbar,
   Nav,
@@ -12,9 +12,9 @@ import {
 
 function App() {
   return (
-    <div className='App'>
+    <div className='app'>
       <Navbar bg='light' expand='lg'>
-        <Navbar.Brand href='#home'>React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href='#home'>WeatherApp</Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mr-auto'>
@@ -38,7 +38,7 @@ function App() {
           </Form>
         </Navbar.Collapse>
       </Navbar>
-      <InfoList />
+      <Hero />
     </div>
   );
 }
