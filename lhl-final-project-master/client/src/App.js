@@ -6,7 +6,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 function App() {
   return (
     <div className='app'>
-      <Navbar bg='light' expand='lg'>
+      {/* <Navbar bg='light' expand='lg'>
         <Navbar.Brand href='#home'>WeatherApp</Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
@@ -26,7 +26,7 @@ function App() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
+      </Navbar> */}
       <Home />
     </div>
   );

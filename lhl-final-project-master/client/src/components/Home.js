@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Mars from '../images/mars.svg';
-import Satellite from '../images/satellite.svg';
 import Saturn from '../images/saturn.svg';
 import Uranus from '../images/uranus.svg';
 
@@ -14,8 +13,9 @@ const Section = styled.section`
   background: #222629;
 `;
 
-const Container = styled.div`
+const Homepage = styled.div`
   display: grid;
+  border: 2px solid #474b4f;
   grid-template-columns: 1fr 1fr;
   height: 100vh;
   padding: 3rem calc((100vw - 1300px) / 2);
@@ -24,8 +24,10 @@ const Container = styled.div`
   }
 `;
 
-const ColumnLeft = styled.div`
+const Intro = styled.div`
   display: flex;
+  border: 1px solid #474b4f;
+  border-radius: 50px;
   color: #61892f;
   flex-direction: column;
   justify-content: center;
@@ -34,22 +36,21 @@ const ColumnLeft = styled.div`
 
   h1 {
     margin-bottom: 0.2rem;
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   p {
     color: #fff;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     font-size: 4rem;
-    ling-height: 1.1;
   }
 `;
 
-const Button = styled.div`
-  padding: 0.9rem 2rem;
+const Button = styled(motion.button)`
+  padding: 0.8rem 3rem;
   color: #fff;
   font-size: 1.5rem;
-  border: 2px solid #86c232;
+  border: 1.5px solid #86c232;
   border-radius: 50px;
   background-color: #86c232;
   outline: none;
@@ -58,14 +59,24 @@ const Button = styled.div`
 
 const Image = styled.img`
   position: absolute;
-  width: 100%;
   height: 100%;
-  max-width: 250px;
-  max-height: 250px;
+  width: 100%;
+  max-width: 150px;
+  max-height: 150px;
+  animation: rotation 2s infinite linear;
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
 `;
 
 // container holding all images
-const ColumnRight = styled.div`
+const Images = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,42 +84,60 @@ const ColumnRight = styled.div`
   position: relative;
 
   ${Image}: nth-child(1) {
-    top: 10px;
-    left: 10px;
+    top: 100px;
+    left: 200px;
   }
 
   ${Image}: nth-child(2) {
-    top: 180px;
-    left: 260px;
+    top: 400px;
+    left: 100px;
   }
 
   ${Image}: nth-child(3) {
-    top: 400px;
-    left: 10px;
-  }
-
-  ${Image}: nth-child(4) {
-    bottom: 50px;
-    left: 250px;
+    bottom: 100px;
+    left: 400px;
   }
 `;
 
 export default function Home() {
+  const fade = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <Section>
-      <Container>
-        <ColumnLeft>
-          <h1>Weather App</h1>
-          <p>JOURNEY TO THE UNKNOWN</p>
-          <Button>Press Enter</Button>
-        </ColumnLeft>
-        <ColumnRight>
+      <Homepage>
+        <Intro>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            Weather App
+          </motion.h1>
+          <motion.p
+            variants={fade}
+            initial='hidden'
+            animate='visible'
+            transition={{ duration: 1.5 }}
+          >
+            JOURNEY TO THE UNKNOWN
+          </motion.p>
+          <Button
+            whileHover={{ scale: 1.3 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1.5 } }}
+          >
+            Explore Here
+          </Button>
+        </Intro>
+        <Images>
           <Image src={Mars} alt='Mars' />
-          <Image src={Satellite} alt='Satellite' />
           <Image src={Saturn} alt='Saturn' />
           <Image src={Uranus} alt='Uranus' />
-        </ColumnRight>
-      </Container>
+        </Images>
+      </Homepage>
     </Section>
   );
 }
