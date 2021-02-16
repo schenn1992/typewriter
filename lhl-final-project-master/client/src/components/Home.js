@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Mars from '../images/mars.svg';
 import Saturn from '../images/saturn.svg';
 import Uranus from '../images/uranus.svg';
+import Spaceshuttle from '../images/spaceshuttle.svg';
 
 const Section = styled.section`
   height: 100vh;
@@ -57,7 +58,7 @@ const Button = styled(motion.button)`
   cursor: pointer;
 `;
 
-const Image = styled.img`
+const PlanetImage = styled.img`
   position: absolute;
   height: 100%;
   width: 100%;
@@ -75,26 +76,41 @@ const Image = styled.img`
   }
 `;
 
+const ShuttleImage = styled.img`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  max-width: 150px;
+  max-height: 150px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+`;
+
 // container holding all images
 const Images = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   position: relative;
 
-  ${Image}: nth-child(1) {
+  ${PlanetImage}: nth-child(1) {
     top: 100px;
     left: 200px;
   }
 
-  ${Image}: nth-child(2) {
+  ${PlanetImage}: nth-child(2) {
     top: 400px;
     left: 100px;
   }
 
-  ${Image}: nth-child(3) {
+  ${PlanetImage}: nth-child(3) {
     bottom: 100px;
+    left: 400px;
+  }
+
+  ${ShuttleImage}: nth-child(4) {
+    bottom: 300px;
     left: 400px;
   }
 `;
@@ -125,6 +141,7 @@ export default function Home() {
             JOURNEY TO THE UNKNOWN
           </motion.p>
           <Button
+            whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.3 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 1.5 } }}
@@ -133,9 +150,10 @@ export default function Home() {
           </Button>
         </Intro>
         <Images>
-          <Image src={Mars} alt='Mars' />
-          <Image src={Saturn} alt='Saturn' />
-          <Image src={Uranus} alt='Uranus' />
+          <PlanetImage src={Mars} alt='Mars' />
+          <PlanetImage src={Saturn} alt='Saturn' />
+          <PlanetImage src={Uranus} alt='Uranus' />
+          <ShuttleImage src={Spaceshuttle} alt='spaceship' />
         </Images>
       </Homepage>
     </Section>
