@@ -145,7 +145,7 @@ export default function Home() {
             animate='visible'
             transition={{ duration: 1.5 }}
           >
-            JOURNEY TO THE UNKNOWN
+            JOURNEY TO THE OUTERSPACE
           </motion.p>
           <Button
             whileTap={{ scale: 0.9 }}

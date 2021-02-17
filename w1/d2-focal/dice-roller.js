@@ -1,7 +1,7 @@
-  // write a function that accept a parameter from the command line
+// write a function that accept a parameter from the command line
 const rollDice = function() {
   let timesToRoll = process.argv.slice(2); 
-  let result = [];
+  let result =[];
   // roll x times according to the parameter with a for loop
   for (let i = 0; i <= String(timesToRoll) - 1; i++) {
   // use random() to roll the dice
