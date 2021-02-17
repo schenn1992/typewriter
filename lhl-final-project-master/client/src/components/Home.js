@@ -84,6 +84,13 @@ const ShuttleImage = styled.img`
   max-height: 150px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+  animation: blinker 1.5s linear infinite;
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
 `;
 
 // container holding all images
@@ -110,8 +117,8 @@ const Images = styled.div`
   }
 
   ${ShuttleImage}: nth-child(4) {
-    bottom: 300px;
-    left: 400px;
+    top: 300px;
+    left: 380px;
   }
 `;
 
